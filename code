@@ -1,0 +1,36 @@
+class Solution
+{
+    public String arrangeString(String s)
+        {
+            int sum = 0;
+            int [] arr = new int[26];
+            String res = "";
+            
+            for (int i=0;i<s.length();i++)
+            {
+                if(Character.isUpperCase(s.charAt(i)))
+                {
+                    arr[s.charAt(i)-'A']++;
+                }
+                else 
+                {
+                    sum = sum + (s.charAt(i)-'0');
+                }
+            }
+            
+            for (int i=0;i<arr.length;i++)
+            {
+                for(int j=arr[i];j>0;j--)
+                {
+                    res = res + (char)(i+'A');
+                }
+            }
+            
+            if(sum>0)
+            {
+                res = res + String.valueOf(sum) ;
+            }
+            return res;
+        }
+        
+}
